@@ -9,7 +9,7 @@ routes.get("/autores/:id", AutorController.listaAutorPorId);
 
 routes.post("/autores", AutorController.cadastrarAutor);
 
-routes.put("/autores:id", AutorController.atualizarAutorPorId);
+routes.put("/autores/:id", AutorController.atualizarAutorPorId);
 
 routes.delete("/autores/:id", AutorController.excluirAutor);
 
