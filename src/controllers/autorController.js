@@ -1,4 +1,4 @@
-import autor from "../models/Autor.js";
+import {autor} from "../models/Autor.js";
 
 class AutorController {
 
@@ -8,7 +8,7 @@ class AutorController {
             const listaAutores = await autor.find({});
             res.status(200).json(listaAutores);
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - ERRO AO ENCONTRAR LIVROS` });
+            res.status(500).json({ message: `${error.message} - ERRO AO ENCONTRAR AUTORES` });
         }
     }
 
@@ -19,7 +19,7 @@ class AutorController {
             res.status(201).send({ message: "criado com sucesso", autor: novoAutor});
         } catch (error) {
             res.status(500).json({
-                message: `${error.message} - FALHA AO CADASTRAR LIVRO`
+                message: `${error.message} - FALHA AO CADASTRAR AUTORES`
             });
         }
     }
@@ -30,7 +30,7 @@ class AutorController {
             const autorEncontrado = await autor.findById(req.params.id);
             res.status(200).json(autorEncontrado);
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - ERRO AO ENCONTRAR LIVRO POR ID` });
+            res.status(500).json({ message: `${error.message} - ERRO AO ENCONTRAR AUTOR POR ID` });
         }
 
 
@@ -43,7 +43,7 @@ class AutorController {
             await autor.findByIdAndUpdate(id, req.body);
             res.status(200).json({message: "autor atualizado"});
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - ERRO AO ATUALIZAR O LIVRO` });
+            res.status(500).json({ message: `${error.message} - ERRO AO ATUALIZAR O AUTOR` });
         }
 
 
@@ -56,7 +56,7 @@ class AutorController {
             const autorEncontrado = await autor.findByIdAndDelete(id);
             res.status(204);
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - ERRO AO EXCLUIR LIVRO POR ID` });
+            res.status(500).json({ message: `${error.message} - ERRO AO EXCLUIR AUTOR POR ID` });
         }
 
 
